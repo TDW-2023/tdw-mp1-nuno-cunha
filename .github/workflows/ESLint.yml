@@ -1,11 +1,11 @@
 name: ESLinter
-on: 
+on:
   pull_request:
     branches:
       - main
   push:
     branches:
-      - integrate-ESLint
+      - "*"
 jobs:
   Linter:
     runs-on: ubuntu-latest
@@ -18,3 +18,6 @@ jobs:
 
       - name: Run ESLinter
         run: npm run lint
+
+      - name: Run Prettier
+        run: npm run prettier
