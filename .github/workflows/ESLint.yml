@@ -1,0 +1,20 @@
+name: ESLinter
+on: 
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - integrate-ESLint
+jobs:
+  Linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run ESLinter
+        run: npm run lint
