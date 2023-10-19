@@ -5,7 +5,8 @@
     "build": "next build && next export",
     "start": "next start",
     "setup": "node ./contentful/setup.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "npx prettier . --check"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.4.0",
