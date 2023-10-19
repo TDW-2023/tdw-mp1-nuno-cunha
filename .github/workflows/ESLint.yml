@@ -1,11 +1,11 @@
 name: ESLinter
-on: 
+on:
   pull_request:
     branches:
       - main
   push:
-    branches: 
-      - '*'
+    branches:
+      - "*"
 jobs:
   Linter:
     runs-on: ubuntu-latest
