@@ -196,5 +196,5 @@ const config = {
 };
 
 module.exports = {
-    "testEnvironment": "jsdom"
+  testEnvironment: "jsdom",
 };
