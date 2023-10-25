@@ -1,15 +1,25 @@
 import Container from "../components/container";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPostsForHome } from "../lib/api";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
+import React, { useState, useEffect } from "react";
+
+import getContentful from "./api/utils";
 
 export default function Index({ preview, allPosts }) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getContentful().then((tmp) => {
+      setData(tmp);
+    });
+  }, []);
+
   return (
     <>
       <Layout preview={preview}>
@@ -18,17 +28,15 @@ export default function Index({ preview, allPosts }) {
         </Head>
         <Container>
           <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
+          {data && (
+            <div>
+              <h1>{data.title}</h1>
+              <h1>{data.date}</h1>
+              {data.content.content.map((val, idx) => {
+                return <p key={idx}>{val.content[0].value}</p>;
+              })}
+            </div>
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
     </>
