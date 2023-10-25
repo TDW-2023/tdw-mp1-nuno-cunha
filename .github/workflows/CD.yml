@@ -1,6 +1,6 @@
 name: CD
 on:
-  push: 
+  push:
     branches:
       - main
 jobs:
@@ -33,18 +33,18 @@ jobs:
       - name: Run Build
         run: npm run build
   Deploy:
-      name: Deploy
-      needs: [build]
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out repository code
-          uses: actions/checkout@v4
-        - name: Install Dependencies
-          run: npm install
-        - name: Run Build
-          run: npm run build
-        - name: Deploy
-          env:
-            NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-            NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          run: npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+    name: Deploy
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Build
+        run: npm run build
+      - name: Deploy
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
