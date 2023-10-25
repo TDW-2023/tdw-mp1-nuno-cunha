@@ -3,8 +3,6 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
-console.log(publicRuntimeConfig)
-
 const client = createClient({
   space: publicRuntimeConfig.SPACE,
   accessToken: publicRuntimeConfig.ACCESSTOKEN,
@@ -15,8 +13,6 @@ const getContentful = async () => {
   const response = await client.getEntry('nylGAjgCl07NIusmedYlD')
     .then((entry) => {return entry.fields})
     .catch(console.error)
-
-  console.log(response)
     
   return response;
 };

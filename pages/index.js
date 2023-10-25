@@ -33,10 +33,10 @@ export default function Index({ preview, allPosts }) {
             <div>
               <h1>{data.title}</h1>
               <h1>{data.date}</h1>
-              {data.content.content.map((val) =>
+              {data.content.content.map((val,idx) =>
               
                {return (
-                  <p>{val.content[0].value}</p>
+                  <p key={idx}>{val.content[0].value}</p>
                )}
               )}
             </div>
