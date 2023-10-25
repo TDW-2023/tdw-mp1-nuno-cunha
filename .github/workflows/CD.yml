@@ -31,7 +31,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run:  |
+        run: |
           touch .env.local
           echo SPACE=${{ secrets.SPACE }} >> .env.local
           echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
@@ -46,7 +46,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run:  |
+        run: |
           touch .env.local
           echo SPACE=${{ secrets.SPACE }} >> .env.local
           echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
