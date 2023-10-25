@@ -31,7 +31,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run: npm run build
+        run:  |
+          touch .env.local
+          echo SPACE=${{ secrets.SPACE }} >> .env.local
+          echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
+          npm run build
   Deploy:
     name: Deploy
     needs: [build]
@@ -42,7 +46,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run: npm run build
+        run:  |
+          touch .env.local
+          echo SPACE=${{ secrets.SPACE }} >> .env.local
+          echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
+          npm run build
       - name: Deploy
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
