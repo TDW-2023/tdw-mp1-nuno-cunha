@@ -6,10 +6,15 @@ on:
   schedule:
     - cron: "0 0 * * *"
   repository_dispath:
-    types: [update]
+    - types: [update]
+    - run: echo test1
+
+  workflow_dispatch:
+    - run: echo test2
 
 jobs:
   Verify:
+    name: Verify
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
