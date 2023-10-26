@@ -2,8 +2,7 @@ name: Contentful
 on:
   repository_dispath:
     types: [CMSupdate]
-    branches:
-      - main
+
 jobs:
   Verify:
     runs-on: ubuntu-latest
