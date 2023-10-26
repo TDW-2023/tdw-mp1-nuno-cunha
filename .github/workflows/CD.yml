@@ -5,12 +5,8 @@ on:
       - main
   schedule:
     - cron: "0 0 * * *"
-  repository_dispath:
-    - types: [update]
-    - run: echo test1
-
-  workflow_dispatch:
-    - run: echo test2
+  repository_dispatch:
+    types: [update]
 
 jobs:
   Verify:
