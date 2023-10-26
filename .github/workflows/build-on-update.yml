@@ -1,8 +1,8 @@
-name: ContentfulUpdate
-
+name: CD
+on:
 	repository_dispatch:
-    	types: [cms_update]
-
+    	types: [CMSupdate]
+  push:
     branches:
       - main
 jobs:
