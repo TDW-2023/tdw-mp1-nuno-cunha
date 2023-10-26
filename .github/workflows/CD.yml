@@ -10,7 +10,7 @@ on:
     - run: echo test1
 
   workflow_dispatch:
-   - run: echo test2
+    - run: echo test2
 
 jobs:
   Verify:
