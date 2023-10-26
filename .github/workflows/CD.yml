@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: "0 0 * * *"
   repository_dispath:
-    types: [CMSupdate]
+
 
 jobs:
   Verify:
