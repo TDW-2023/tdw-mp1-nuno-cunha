@@ -1,10 +1,9 @@
-name: CD
+name: Contentful
 on:
-  push:
+  repository_dispath:
+    types: [CMSupdate]
     branches:
       - main
-  schedule:
-    - cron: "0 0 * * *"
 jobs:
   Verify:
     runs-on: ubuntu-latest
