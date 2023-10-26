@@ -31,11 +31,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run: |
-          touch .env.local
-          echo SPACE=${{ secrets.SPACE }} >> .env.local
-          echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
-          npm run build
+        env:
+          SPACE: ${{ secrets.SPACE}}
+          ACCESSTOKEN: ${{ secrets.ACCESSTOKEN }}
+        run: npm run build
   Deploy:
     name: Deploy
     needs: [build]
