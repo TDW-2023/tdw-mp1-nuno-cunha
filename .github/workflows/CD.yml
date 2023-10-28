@@ -29,7 +29,7 @@ jobs:
         run: npm run test
   Build:
     name: Build
-    needs: [verify]
+    needs: [Verify]
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -43,7 +43,7 @@ jobs:
         run: npm run build
   Deploy:
     name: Deploy
-    needs: [build]
+    needs: [Build]
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -51,11 +51,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Build
-        run: |
-          touch .env.local
-          echo SPACE=${{ secrets.SPACE }} >> .env.local
-          echo ACCESSTOKEN=${{ secrets.ACCESSTOKEN }} >> .env.local
-          npm run build
+        env:
+          SPACE: ${{ secrets.SPACE}}
+          ACCESSTOKEN: ${{ secrets.ACCESSTOKEN }}
+        run: npm run build
       - name: Deploy
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
