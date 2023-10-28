@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import Alert from "./alert";
+import Container from "./container";
 
-test('Test "components/alert.js"', async () => {
-  render(<Alert preview={true} />);
+test('Test "components/container.js"', async () => {
+  render(<Container/>);
 
-  const element = screen.getByText("Click here");
+  const element = screen.getByRole("div_container");
   expect(element).not.toBeNull();
 
   const element2 = document.createElement("div");
   expect(element2).not.toBeNull();
+
 });

@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Alert from "./alert";
+import Footer from "./footer";
 
-test('Test "components/alert.js"', async () => {
-  render(<Alert preview={true} />);
+test('Test "components/footer.js"', async () => {
+  render(<Footer />);
 
-  const element = screen.getByText("Click here");
+  const element = screen.getByText("Read Documentation");
   expect(element).not.toBeNull();
 
   const element2 = document.createElement("div");

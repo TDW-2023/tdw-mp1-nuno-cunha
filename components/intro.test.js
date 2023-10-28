@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import Alert from "./alert";
+import Intro from "./intro";
 
-test('Test "components/alert.js"', async () => {
-  render(<Alert preview={true} />);
+test('Test "components/intro.js"', async () => {
+  render(<Intro/>);
 
-  const element = screen.getByText("Click here");
+  const element = screen.getByText("Next.js");
   expect(element).not.toBeNull();
 
   const element2 = document.createElement("div");
   expect(element2).not.toBeNull();
+
 });
